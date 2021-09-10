@@ -1,20 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
+	<title>Calc</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div id="container">
 		<input type="text" id="display-history" disabled>
 		
-		<input type="text" id="display-actual" placeholder="0" disabled>
+		<input type="text" id="display-current" placeholder="0" disabled>
 		<button type="button" onclick=insert("<") class="eraser"><=</button>
 		
-		<button type="button" onclick=insert("")>%</button>
-		<button type="button" onclick=insert("")>+/-</button>
 		<button type="button" onclick=clean() class="c">C</button>
 		
-		<button type="button" onclick=insert("")>sqrt</button>
-		<button type="button" onclick=insert("")>x²</button>
 		<button type="button" onclick=insert("/")>/</button>
 		<button type="button" onclick=insert("*")>*</button>		
 		
@@ -38,29 +37,28 @@
 
 	</div>
 	<script>
-		let displayActual = document.getElementById("display-actual");
+		let displayCurrent = document.getElementById("display-current");
 		
 		function insert(value){
 		
 			if (value === "=")
-				displayActual.value = eval(displayActual.value);
+				displayCurrent.value = eval(displayCurrent.value);
 			else{
 				if(value === "<")
-					displayActual.value = displayActual.value.slice(0,-1)
-					//displayActual.value =  displayActual.value.slice(0,(displayActual.value.length-1));
+					displayCurrent.value = displayCurrent.value.slice(0,-1)
 				else
 					if (value === '+' || value === '-' || value === '*' || value === '/'){
-						if((displayActual.value.endsWith("+")) || (displayActual.value.endsWith("-")) || (displayActual.value.endsWith("*")) || (displayActual.value.endsWith("/")))
-							displayActual.value = displayActual.value.slice(0,(displayActual.value.length-1)).concat(value)
+						if((displayCurrent.value.endsWith("+")) || (displayCurrent.value.endsWith("-")) || (displayCurrent.value.endsWith("*")) || (displayCurrent.value.endsWith("/")))
+							displayCurrent.value = displayCurrent.value.slice(0,-1).concat(value)
 						else
-							displayActual.value += value;							
+							displayCurrent.value += value;							
 					}else
-						displayActual.value += value;
+						displayCurrent.value += value;
 			}
 		}
 		
 		function clean(){
-			displayActual.value = "";
+			displayCurrent.value = "";
 		}
 	</script>
 </body>
