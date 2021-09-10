@@ -1,0 +1,58 @@
+*{
+	font-weight: bold;
+	border: none;
+}
+
+body{
+
+	background-color: #121317;
+	background-color: #1D1D1D;
+}
+button{
+	background-color: #111111;
+	color: grey;
+}
+button:hover{
+	background-color: #404040;
+	
+}
+button:active{
+	transform: translateY(2px);	
+}
+#container{
+	border: none;
+	width: 19rem;
+	height:27rem;
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	margin: auto;
+	margin-top: 90px;
+}
+.zero{
+	grid-column: span 2;
+}
+#display-history{
+	grid-column: span 4;
+	background-color: #090909;
+}
+#display-actual{
+	text-align: right;
+	grid-column: span 3;
+	background-color: #090909;
+	color: white;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.c{
+	grid-column: span 2;
+}
+.equ{
+	grid-row-end: span 2;
+}
+.number{
+	background-color: #131313;
+	color: white;
+}
+.eraser{
+	background-color: #090909;
+}
